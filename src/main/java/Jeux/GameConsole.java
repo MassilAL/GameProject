@@ -1,8 +1,7 @@
-package main.java.Jeux;
+package Jeux;
+import views.*;
 
-import main.java.Color;
-import main.java.Wand;
-import main.java.Wizard;
+import views.Wizard;
 
 import java.util.Scanner;
 
@@ -13,9 +12,12 @@ public class GameConsole {
     public static void game() {
 
         boolean nameSet = false;
+        /*public Pet getPet() {
+            return pet;
+        }*/
         Scanner scanner= new Scanner(System.in);
         String NameWizard;
-        //Wizard wizard = new Wizard(NameWizard, 100, 100)
+        //views.Wizard wizard = new views.Wizard(NameWizard, 100, 100)
         do {
             clearConsole();
             printSeparator(1);
@@ -38,14 +40,17 @@ public class GameConsole {
 
             }*/
         }while(nameSet == false);{
-            //Wizard wizard = new Wizard(NameWizard);
+            //views.Wizard wizard = new views.Wizard(NameWizard);
             isRunning = true;
             
 
         }
         System.out.println("Welcome to this game "+NameWizard);
+        //System.out.println(House.values());
         Wand wand=new Wand();
-        System.out.println("your wand measure  "+wand.getSize() +"cm and the core is "+wand.getCore()+" congratulation!!;)");
+        //Pet pet = new Pet();
+        //Pet pet=Pet.getPet();
+        System.out.println("your wand measure  "+wand.getSize() +"cm and the core is "+wand.getCore()+" congratulation!!;)\n PETTT:"/*+pet.getPet()*/);
         delay(4000);
     }
     //Charactere info
@@ -64,7 +69,7 @@ public class GameConsole {
         System.out.println("Choose an action");
         printSeparator(1);
         System.out.println("(1) Continue");
-        System.out.println("(2) Wizard info");
+        System.out.println("(2) views.Wizard info");
         System.out.println("(3) Exit game");
 
     }

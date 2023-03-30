@@ -1,4 +1,4 @@
-package main.java;
+package views;
 
 public enum Color {
     RESET ("\033[0m"),

@@ -1,8 +1,8 @@
-package main.java.Jeux;
+package Jeux;
 
-import main.java.Story;
 
-import java.util.Scanner;
+import views.Story;
+
 
 public class Main {
     public static void main(String[] args) {

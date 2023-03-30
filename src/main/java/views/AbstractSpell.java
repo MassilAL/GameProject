@@ -1,4 +1,4 @@
-package main.java;
+package views;
 
 public abstract class AbstractSpell {
 

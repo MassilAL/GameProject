@@ -1,10 +1,8 @@
-package main.java;
-import jdk.internal.icu.impl.CharacterIteratorWrapper;
+package views;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import static main.java.Jeux.GameConsole.scanner;
 
 public class Wizard {
   public String NameWizard;

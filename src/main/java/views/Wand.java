@@ -1,4 +1,4 @@
-package main.java;
+package views;
 
 import java.util.List;
 import java.util.Random;

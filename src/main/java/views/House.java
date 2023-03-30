@@ -1,10 +1,10 @@
-package main.java;
+package views;
 
-//public class House {
-    //public String name;
-    public record House(String name) {
+public class House {/*
+    public String name;
+   // public void House(String name) {
 
-        public void houseEffect(Wizard wizard, Potion potion) {
+        public void houseEffect(main.java.Wizard wizard, Potion potion) {
             switch (this.name) {
                 case "Slytherin" -> {
                     wizard.setDamage(wizard.getDamage() + 25);
@@ -21,7 +21,7 @@ package main.java;
                 /*case "Hufflepuff" -> {
                     potion.setHeal(100);
                     wizard.setPet(Pet.TOAD);
-                }*/
+                }/
         }
-    }
+    }*/
 }

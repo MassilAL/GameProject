@@ -1,6 +1,6 @@
-package main.java;
+package views;
+import Jeux.*;
 
-import main.java.Jeux.GameConsole;
 
 public class Story {
     public static void ptintIntro () {
