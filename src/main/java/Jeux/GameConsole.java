@@ -25,6 +25,8 @@ public class GameConsole {
             printSeparator(1);
             NameWizard= scanner.nextLine();
             //Object printHeading;
+
+
             printHeading("Your name is " + NameWizard + ".\nIs that correct?");
             System.out.println("(1) YES");
             System.out.println("(2)No, I want to change my name");
@@ -63,14 +65,29 @@ public class GameConsole {
 
     }
     //the main menu
+
     public static void printMenu() {
         clearConsole();
         printHeading("Menu");
         System.out.println("Choose an action");
         printSeparator(1);
         System.out.println("(1) Continue");
-        System.out.println("(2) views.Wizard info");
+        System.out.println("(2) Wizard info");
         System.out.println("(3) Exit game");
+        int choice=readInt("->",3);
+        if(choice==1){
+            System.out.println("good choice let's goo");
+        }
+        if(choice==2){
+            printHeading("charactere info");
+            System.out.println(wizard.NameWizard+"\t HP: "+ wizard.pv);
+            printSeparator(1);
+        }
+        if(choice==3){
+            System.out.println("END...");
+            waiting();
+
+        }
 
     }
     //main game loop
@@ -94,7 +111,78 @@ public class GameConsole {
             return input;
         }
 
+   /* public static void randomBattle() {
+            clearConsole();
+            printHeading("there are a creature you have to fight it!");
+            waiting();
+            battle(new Enemy(enemy[(int)(Math.random()*enemy.length)], enemy.pv));
+        }
 
+        public static void battle(Enemy enemy) {
+            while(true){
+                clearConsole();
+                printHeading(enemy.name+"\nHP:"+enemy.pv+"/"+enemy.pvMax);
+                printHeading(wizard.NameWizard+"\nHP:"+wizard.pv+"/"+wizard.pvMax);
+                waiting();
+                battle(new Enemy(enemy[(int)(Math.random()*enemy.length)], enemy.pv));
+                printSeparator(1);
+                System.out.println("Choice an action:");
+                System.out.println("(1) fight\n(2) Use potion");
+                int input=readInt("->", 2);
+                if(input==1){
+                    //fight
+                    int damage = wizard.attack() - enemy.defence();
+                    int damageTook= enemy.attack() - wizard.defence();
+                    if(damageTook<0){
+                        damage-=damageTook/2;
+                        damageTook=0;
+                    }
+                    if(damage<0){
+                        damage=0;
+                        wizard.pv -=damageTook;
+                        enemy.pv -=damage;
+                        clearConsole();
+                        printHeading("BATTLE");
+                        System.out.println("you dealt "+damage+" damage to the "+enemy.name);
+                        printSeparator(1);
+                        System.out.println("The "+enemy.name+"dealt"+damageTook+" damage to you");
+                        waiting();
+                        if(wizard.pv<=0){
+                            //end the game
+                            wizardDead();
+                            break;
+                        } else if (enemy.pv<=0) {
+                            clearConsole();
+                            printHeading("You defead the"+enemy.name);
+                        }
+
+                }else if(input==2){
+                        //Potion
+                        clearConsole();
+                        if(wizard.getPotions>0 && wizard.pv< wizard.pvMax ){
+                            printHeading("You are about to take the pots: "+wizard.getPotions());
+                            wizard.pv=wizard.pv+40;
+                            clearConsole();
+                            printHeading("You drank a magic potion, now your health back to: "+wizard.pv);
+                            waiting();
+                        }
+                    }
+
+                }else{
+                    System.out.println("false values retry...");
+                }
+
+            }
+
+
+    } */
+
+
+    public static void wizardDead() {
+        clearConsole();
+        printHeading("you died...");
+        printHeading("Thanks you and congratulation for you game");
+    }
 
         private static void printHeading(String title) {
             printSeparator(1);

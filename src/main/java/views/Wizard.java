@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class Wizard {
+public abstract class Wizard {
   public String NameWizard;
   public int pv;
   public int pvMax;
@@ -128,4 +128,7 @@ public class Wizard {
   public void setSpells(List<AbstractSpell> spells) {
     this.spells = spells;
   }
+
+
+  public abstract int attack();
 }

@@ -18,7 +18,4 @@ public class Wand {
     public Core getCore() {
         return core;
     }
-    public String toString(){
-        return "your wand is: the wand of size"+size + "\" with a core of " + core.toString();
-    }
 }
