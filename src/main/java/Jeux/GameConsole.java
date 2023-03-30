@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class GameConsole {
     public static Scanner scanner=new Scanner(System.in);
+
     static Wizard wizard;
     static boolean isRunning;
     public static void game() {
