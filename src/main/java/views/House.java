@@ -1,27 +1,27 @@
 package views;
 
-public class House {/*
-    public String name;
-   // public void House(String name) {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-        public void houseEffect(main.java.Wizard wizard, Potion potion) {
-            switch (this.name) {
-                case "Slytherin" -> {
-                    wizard.setDamage(wizard.getDamage() + 25);
-                    wizard.setPet(Pet.RAT);
-                }
-                case "Gryffindor" -> {
-                    wizard.setDefence(Wizard.getDefence()+ 20);
-                    wizard.setPet(Pet.CAT);
-                }
-                case "Ravenclaw" -> {
-                    wizard.setAccuracy(wizard.getAccuracy()+ 15);
-                    wizard.setPet(Pet.OWL);
-                }
-                /*case "Hufflepuff" -> {
-                    potion.setHeal(100);
-                    wizard.setPet(Pet.TOAD);
-                }/
+    public enum House {
+        GRRYFINDOR,
+        HUFFLEPUFF,
+        SLYTHERIN;
+
+
+        private static List<views.House> HOUSE_LIST = null;
+
+        static {
+            HOUSE_LIST = new ArrayList<>();
+            HOUSE_LIST.addAll(Arrays.asList(House.values()));
         }
-    }*/
+
+        public static List<views.House> getValues() {
+            return Collections.unmodifiableList(HOUSE_LIST);
+
+        }
+
+
 }

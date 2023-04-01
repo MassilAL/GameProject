@@ -1,85 +1,40 @@
 package views;
 
-import java.util.LinkedList;
 import java.util.List;
 
+import static Jeux.GameConsole.random;
 
-public abstract class Wizard {
-  public String NameWizard;
-  public int pv;
-  public int pvMax;
-  public int damage;
+
+public class Wizard extends Character {
+
+  public int getPotions;
+
 
   private List<AbstractSpell> spells;
+  private  House house;
 
-  public Wizard(String NameWizard, int pvMax, int damage, int defence, int accuracy, Pet pet, Wand wand, House house) {
-    this.NameWizard = NameWizard;
-    this.pv = pvMax;
-    this.pvMax = pvMax;
-    this.damage = damage;
-    this.defence = defence;
-    this.accuracy = accuracy;
-    this.pet = pet;
-    this.wand = wand;
-    this.house = house;
-    this.spells = new LinkedList<>();
+  public Wizard(String nameWizard, int pv, int pvMax, int damage, int getPotions) {
+    super(nameWizard, pv, pvMax, damage);
+    this.getPotions = getPotions;
+    this.wand = new Wand();
+    this.house = generateHouse();
   }
 
-  public static int defence;
-  public int accuracy;
+
+
   private Pet pet;
   private Wand wand;
-  private House house;
   private List<Spell> KnownSpells;
   private List<Potion> potions;
 
   public String getNameWizard() {
-    return NameWizard;
+    return Name;
   }
 
   public void setNameWizard(String nameWizard) {
-    NameWizard = nameWizard;
+    Name = nameWizard;
   }
 
-  public int getPv() {
-    return pv;
-  }
-
-  public void setPv(int pv) {
-    this.pv = pv;
-  }
-
-  public int getPvMax() {
-    return pvMax;
-  }
-
-  public void setPvMax(int pvMax) {
-    this.pvMax = pvMax;
-  }
-
-  public int getDamage() {
-    return damage;
-  }
-
-  public void setDamage(int damage) {
-    this.damage = damage;
-  }
-
-  public static int getDefence() {
-    return defence;
-  }
-
-  public void setDefence(int defence) {
-    this.defence = defence;
-  }
-
-  public int getAccuracy() {
-    return accuracy;
-  }
-
-  public void setAccuracy(int accuracy) {
-    this.accuracy = accuracy;
-  }
 
   public Pet getPet() {
     return pet;
@@ -129,6 +84,10 @@ public abstract class Wizard {
     this.spells = spells;
   }
 
+  static List<House> ListHouse=House.getValues();
 
-  public abstract int attack();
+  public House generateHouse(){
+    return ListHouse.get(random.nextInt(ListHouse.size()));
+  }
+
 }

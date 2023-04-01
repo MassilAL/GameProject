@@ -17,7 +17,7 @@ public class Story {
         GameConsole.printSeparator(1);
         System.out.println("\t Level 1: The  Philosopher’s Stone");
         GameConsole.printSeparator(1);
-        System.out.println(" Be careful near the toilets of the dungeon a troll is lurking, if you come across it think of using the items around you...\n Good luck young wizard");
+        System.out.println("Be careful near the toilets of the dungeon a troll is lurking, if you come across it think of using the items around you...\n Good luck young wizard");
         GameConsole.delay(3000);
 
     }
@@ -64,6 +64,7 @@ public class Story {
         GameConsole.printSeparator(1);
         System.out.println(" The fight calls for you to defend yourself against the Mangemorts by attacking them from the front.\nIf you are a Slytherin you have a heavy choice, you can side with the Death Eaters.\nMake the right choice .\n Good luck professional wizard");
         GameConsole.delay(3000);
+
 
     }
     public static void seventhLevel () {
