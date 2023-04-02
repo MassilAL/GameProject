@@ -6,9 +6,10 @@ import java.util.Collections;
 import java.util.List;
 
     public enum House {
-        GRRYFINDOR,
+        GRYFFINDOR,
         HUFFLEPUFF,
-        SLYTHERIN;
+        SLYTHERIN,
+        RAVENCLAW;
 
 
         private static List<views.House> HOUSE_LIST = null;
@@ -22,6 +23,7 @@ import java.util.List;
             return Collections.unmodifiableList(HOUSE_LIST);
 
         }
+
 
 
 }

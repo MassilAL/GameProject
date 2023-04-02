@@ -9,20 +9,24 @@ public class Main {
 
 
         GameConsole.game();
-        Story.prtintIntro();
+        //Story.prtintIntro();
         //GameConsole.charactereInfo();
 
         GameConsole.printMenu();
-        GameConsole.waiting();
-        GameConsole.Fight();
         Story.firstLevel();
-
-        /*Story.secondLevel();
+        GameConsole.Fight();
+        Story.secondLevel();
+        GameConsole.Fight();
         Story.thirdLevel();
+        GameConsole.Fight();
         Story.fourthLevel();
+        GameConsole.Fight();
         Story.fifthLevel();
+        GameConsole.Fight();
         Story.sixthLevel();
-        Story.seventhLevel();*/
+        GameConsole.Fight();
+        Story.seventhLevel();
+        GameConsole.Fight();
 
     }
 }

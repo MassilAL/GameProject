@@ -28,7 +28,8 @@ public class GameConsole {
             printSeparator(1);
             System.out.println((Color.RED.color)+"What is your name??"+(Color.RESET.color));
             printSeparator(1);
-            wizardName= scanner.nextLine();
+            System.out.println("\n\n\n");
+            wizardName= (Color.BLUE.color)+scanner.nextLine()+(Color.RESET.color);
             //Object printHeading;
 
 
@@ -56,7 +57,8 @@ public class GameConsole {
         wizard=new Wizard (wizardName, 100,100,40,50);
         //Pet pet = new Pet();
         //Pet pet=Pet.getPet();
-        System.out.println("your wand measure  "+wizard.getWand().getSize() +"cm and the core is "+wizard.getWand().getCore()+" congratulation!!;)\n PET: "+ wizard.getHouse()/*+pet.getPet()*/);
+        System.out.println("your wand measure  "+(Color.GREEN.color)+wizard.getWand().getSize() +(Color.RESET.color)+"cm and the core is "+
+                (Color.GREEN.color)+wizard.getWand().getCore()+(Color.RESET.color)+" congratulation!!;)\n HOUSE : "+(Color.BLUE.color)+ wizard.getHouse());
         delay(4000);
 
     }
@@ -85,7 +87,7 @@ public class GameConsole {
         }
         if(choice==2){
             printHeading("charactere info");
-            System.out.println(wizard.Name+"\t HP: "+ wizard.pv);
+            System.out.println(wizard.Name+"\t HP: "+(Color.GREEN.color)+ wizard.pv+(Color.RESET.color));
             printSeparator(1);
         }
         if(choice==3){
@@ -114,14 +116,6 @@ public class GameConsole {
             }
         }while (input < 1 || input > userChoices);
             return input;
-        }
-
-    public static void randomBattle() {
-            clearConsole();
-            printHeading("there are a creature you have to fight it!");
-            waiting();
-
-        //battle(new Enemy(enemy[(int)(Math.random())], enemy.pv));
         }
 
         /*public static void battle() {
@@ -189,58 +183,72 @@ public class GameConsole {
 
             Scanner input = new Scanner(System.in);
             Random random = new Random();
+            Enemy enemy= Enemy.GenerateEnemy(level);
+        //more damage from level 4
+            if (level==4){
+                wizard.damage=wizard.damage+5;
 
-            
+            }
 
-           Enemy enemy= Enemy.GenerateEnemy(level);
+            printHeading("there are a creature you have to fight it!");
+            System.out.println("The battles begins between " + wizard.Name + " and " + (Color.RED.color)+ enemy.Name +(Color.RESET.color)+ " !");
 
-            System.out.println("The battles begins between " + wizard.Name + " and " + enemy.Name + " !");
+            System.out.println("LEVEL: "+level);
             level=level+1;
+            wizard.pv=wizard.pvMax;
 
             while (wizard.pv > 0 && enemy.pv > 0) {
                 if (wizard.pv > 100) {
                     wizard.pv = 100;
                 }
-                System.out.println(wizard.Name+ " : "+wizard.pv+" hp");
-                System.out.println(enemy.Name+ ":"+enemy.pv+"hp");
-                System.out.println(wizard.Name + ", what do you ?");
+                System.out.println(wizard.Name+ " : "+(Color.GREEN.color)+wizard.pv+(Color.RESET.color)+" hp");
+                System.out.println((Color.RED.color)+ enemy.Name +(Color.RESET.color)+ ":"+enemy.pv+"hp");
+                System.out.println(wizard.Name + ", what do you want to do ?");
                 System.out.println("1. cast a spell");
-                System.out.println("2. Drink a potion");
+                System.out.println("2. Drink a potion\n ");
 
-                // Tour de Voldemort
+                // the enemy's turn
                 if (enemy.pv > 0) {
-                    int voldemortAction = random.nextInt(2) + 1;
+                    int enemyAction = random.nextInt(2) + 1;
 
 
-                    int voldemortDamage = random.nextInt(enemy.damage - 20,enemy.damage);
-                    wizard.pv -= voldemortDamage;
-                    System.out.println(enemy.Name + " cast a spell of " + voldemortDamage + " damage on " + wizard.Name + " !");
-
+                    int enemyDamage = random.nextInt(enemy.damage - 20,enemy.damage);
+                    wizard.pv -= enemyDamage;
+                    System.out.println((Color.RED.color)+ enemy.Name +(Color.RESET.color)+" cast a spell of "+(Color.RED.color)+enemyDamage+
+                            (Color.RESET.color)+" damage on " + (Color.BLUE.color)+wizard.Name +(Color.RESET.color) +" !");
                 }
-                // Tour de Harry Potter
 
-                int harryAction = input.nextInt();
+                // Wizard's turn
+                int wizardAction = input.nextInt();
 
-                if (harryAction == 1) {
+                if (wizardAction == 1) {
                     int hDamage = random.nextInt(wizard.damage - 10,wizard.damage);
                     enemy.pv -= hDamage;
-                    System.out.println(wizard.Name + " cast a spell " +hDamage + " damage on" + enemy.Name + " !");
-                } else if (harryAction == 2) {
-                    int harryPotion = random.nextInt(wizard.pv + 10,wizard.pv+30) ;
-                    wizard.pv += harryPotion;
+                    System.out.println((Color.BLUE.color)+ wizard.Name + " cast a spell "+ (Color.RED.color)+hDamage + (Color.RESET.color)+" damage on" +(Color.RED.color)+ enemy.Name +(Color.RESET.color)+ " !");
+                } else if (wizardAction == 2) {
+                    int potionValues = random.nextInt(wizard.pv + 10,wizard.pv+30) ;
+                    wizard.pv += potionValues;
 
-                    System.out.println(wizard.Name + "  Drink a potion that  lui rend " + harryPotion + " points de vie !\n");
+                    System.out.println(wizard.Name + " Drink a potion that gives him back " + potionValues + " life point !\n");
 
                 } else {
                     System.out.println("Invalid action!");
                 }
                 if (enemy.pv < 0) {
-                    int voldemortAction = random.nextInt(2) + 1;
-                    level=level+1;
+                    int enemyAction = random.nextInt(2) + 1;
+                    
                     clearConsole();
-                    System.out.println("Congratulation you kill");
-                    System.out.println("tu est au niveau : "+level);
+                    System.out.println("Congratulation you kill "+(Color.RED.color)+ enemy.Name +(Color.RESET.color));
+                    System.out.println("Your are in Level : "+level);
                 }
+                delay(1000);
+                clearConsole();
+
+            }
+            if (level==7){
+                printHeading("CONGRATULATION YOU HAVE SUCCESSFULLY WON");
+                System.out.println("You have graduated from\n" +
+                        "the most prestigious school of witchcraft on the planet!");
 
             }
         }

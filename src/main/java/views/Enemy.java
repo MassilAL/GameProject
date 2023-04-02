@@ -15,22 +15,30 @@ public class Enemy extends Character{
         switch (level){
 
             case 2:
-            enemy=new Enemy("basilic",100,100,40);
+                enemy=  new Enemy("Basilic",100,100,20);
             break;
 
             case 3:
-            enemy=new Enemy("troll2",100,100,30);
+            enemy=new Enemy("Detractors",100,100,25);
             break;
 
             case 4:
-            enemy=new Enemy("troll3",100,100,30);
+            enemy=new Enemy("Voldemort and Peter Pettigrow",100,100,30);
             break;
 
             case 5:
-            enemy=new Enemy("trol4l",100,100,30);
+            enemy=new Enemy("Dolores Shade",100,100,30);
             break;
+
+            case 6:
+                enemy=new Enemy("Death Eater",110,110,30);
+                break;
+            case 7:
+                enemy=new Enemy("voldemort and Bellatrix Lestrange",110,110,40);
+                break;
+
             default:
-                enemy=new Enemy("troll",100,100,40);
+                enemy=new Enemy("Troll",90,90,20);
 
             break;
         }

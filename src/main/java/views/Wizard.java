@@ -32,7 +32,7 @@ public class Wizard extends Character {
   }
 
   public void setNameWizard(String nameWizard) {
-    Name = nameWizard;
+    Name = (Color.GREEN.color)+nameWizard;
   }
 
 
