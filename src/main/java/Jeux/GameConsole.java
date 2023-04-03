@@ -2,6 +2,7 @@ package Jeux;
 
 import views.Color;
 import views.Enemy;
+import views.House;
 import views.Wizard;
 
 import java.util.Random;
@@ -92,8 +93,8 @@ public class GameConsole {
         }
         if(choice==3){
             System.out.println("END...");
-            waiting();
-
+            System Systeme = null;
+            Systeme.exit(0);
         }
 
     }
@@ -185,10 +186,7 @@ public class GameConsole {
             Random random = new Random();
             Enemy enemy= Enemy.GenerateEnemy(level);
         //more damage from level 4
-            if (level==4){
-                wizard.damage=wizard.damage+5;
 
-            }
 
             printHeading("there are a creature you have to fight it!");
             System.out.println("The battles begins between " + wizard.Name + " and " + (Color.RED.color)+ enemy.Name +(Color.RESET.color)+ " !");
@@ -240,15 +238,40 @@ public class GameConsole {
                     clearConsole();
                     System.out.println("Congratulation you kill "+(Color.RED.color)+ enemy.Name +(Color.RESET.color));
                     System.out.println("Your are in Level : "+level);
+                    delay(2000);
                 }
                 delay(1000);
                 clearConsole();
 
             }
+            if (wizard.pv < 0) {
+                wizardDead();
+            delay(3000);
+            System.exit(0);
+            }
+            if (level==6 && wizard.getHouse()==House.SLYTHERIN){
+
+                printHeading("Do you want join the ranks of the Death Eater");
+                System.out.println("(1) No I want to resist against the Death Eater");
+                System.out.println("(2) Yes I want to belive Death Eater");
+                int choice=readInt("->",2);
+                if(choice==1){
+                    System.out.println("good choice you did not betray your own");
+                }
+                if(choice==2){
+                    clearConsole();
+                    printSeparator(1);
+                    printHeading(wizard.Name+" YOU ARE A TRAITOR");
+                    printHeading("YOU CANNOT CONTINUE IN THIS ESTABLISHMENT\n Shame on you!!");
+                    delay(3000);
+                    System.exit(0);
+                }
+            }
             if (level==7){
-                printHeading("CONGRATULATION YOU HAVE SUCCESSFULLY WON");
-                System.out.println("You have graduated from\n" +
-                        "the most prestigious school of witchcraft on the planet!");
+                printHeading((Color.RED.color)+"CONGRATULATION YOU HAVE SUCCESSFULLY WON");
+                System.out.println("You have graduated from\n"+(Color.RESET.color) + (Color.BLUE.color)+
+                        "the most prestigious school of witchcraft on the planet"+(Color.GREEN.color)+"!!"+(Color.RED.color)+"!!"+(Color.BLUE.color)+"!!");
+                delay(2000);
 
             }
         }
